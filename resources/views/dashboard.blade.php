@@ -13,9 +13,7 @@
 
        <!-- FORMA 1 -->
 
-           <x-jpalert title="Alerta de prueba!"> 
-                <p>Esta es una alerta de prueba by jp</p>
-            </x-jpalert> 
+
         
         <!-- FORMA 2 no me funcionó -->
        
