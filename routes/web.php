@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\principalController;
+//use App\Http\Controllers\loginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
+Route::get('/',principalController::class);
+
+//Route::get('login',[loginController::class,'show'])->name('login.show');
+/*Route::get('login', function () {
+    return view('welcome');
+});*/
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
