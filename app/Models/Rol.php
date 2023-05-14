@@ -11,4 +11,8 @@ class Rol extends Model
     
     protected $fillable = [ 'nombre'];
     protected $primaryKey = 'id';
+    // relacion de uno muhcos inversas
+    public function usurs(){
+        return $this->belongsTo(User::class);
+    }
 }
