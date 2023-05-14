@@ -9,11 +9,13 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['email', 'nombre', 'telefono', 'direccion', 'fecha_nacimiento', 'genero'];
+    protected $fillable = ['email', 'nombre','nro_telefono', 'fecha_nacimiento', 'genero', 'fecha_registro', 'tipo', 'apellido', ];
 
     protected $primaryKey = 'id';
+
+    //uno a muchos inversa
     public function user()
     {
-        return $this->belongsTo(User::class);
+     return $this->belongsTo(User::class);
     }
 }

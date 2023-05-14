@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Cliente;
 
 class User extends Authenticatable
 {
@@ -37,6 +38,12 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    //relacion uno a muchos
+    public function clientes(){
+        return $this->hasmany(Cliente::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',
