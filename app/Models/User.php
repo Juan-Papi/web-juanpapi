@@ -10,7 +10,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Models\Cliente;
+use App\Models\Personal;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -62,18 +63,19 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    //relacion de uno a muchos 
-    public function personals()
+    //relacion de uno a uno 
+    public function personal()
     {
-        return $this->hasMany(personal::class);
+        return $this->hasOne(Personal::class);
     }
+    //relacion uno a uno
     public function cliente()
     {
-        return $this->hasMany(cliente::class);   
+        return $this->hasOne(Cliente::class);   
     }
-    // delacion de uno a muchos invertido
+    // relacion de uno a muchos
     public function rols()
     {
-        return $this->belongsTo(rol::class);
+        return $this->hasMany(rol::class);
     }
 }

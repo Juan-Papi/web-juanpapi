@@ -13,10 +13,13 @@ class NotaCompra extends Model
     protected $fillable = ['descripcion', 'monto', 'fecha'];
 
     protected $primaryKey = 'id';
+
+    //uno a muchos inversa
     public function proveedor()
     {
         return $this->belongsTo(Proveedor::class);
     }
+    //uno a muchos inversa
     public function user()
     {
         return $this->belongsTo(User::class);
