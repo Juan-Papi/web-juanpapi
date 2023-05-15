@@ -11,4 +11,10 @@ class Producto extends Model
     protected $fillable = ['descripcion', 'precio'];
 
     protected $primaryKey = 'id';
+
+    // relacion de mucho a mucho 
+    public function notaCompras(){
+        return $this->belongsToMany(NotaCompra::class);
+    }
+
 }

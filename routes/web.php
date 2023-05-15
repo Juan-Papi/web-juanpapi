@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\principalController;
+use Illuminate\Support\Facades\Auth;
+
 //use App\Http\Controllers\loginController;
 
 /*
@@ -34,3 +36,36 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/tables', function () {
+    return view('pages.tables');
+})->name('tables');
+
+Route::get('/virtual-reality', function () {
+    return view('pages.virtual-reality');
+})->name('virtual-reality');
+
+Route::get('/rtl', function () {
+    return view('pages.rtl');
+})->name('rtl');
+
+Route::get('/profile', function () {
+    return view('pages.profile');
+})->name('profile');
+
+Route::get('/sign-in', function () {
+    return view('pages.sign-in');
+})->name('sign-in');
+
+Route::get('/sign-up', function () {
+    return view('pages.sign-up');
+})->name('sign-up');
+
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/');
+});
+
+Route::get('/billing', function () {
+    return view('pages.billing');
+})->name('billing');

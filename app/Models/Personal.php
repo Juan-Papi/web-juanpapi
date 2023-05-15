@@ -9,9 +9,13 @@ class Personal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['email', 'nombre', 'telefono', 'cargo', 'estado', 'fecha_contrato', 'finalizacion_contrato', 'genero'];
+    //cuando tiene muchos campos(atributos)
+    //los sgts no se asignan masivamente    
+    protected $guarded =['id','created_at','updated_at'];
 
     protected $primaryKey = 'id';
+
+    //relacion uno a uno inverso
     public function user()
     {
         return $this->belongsTo(User::class);

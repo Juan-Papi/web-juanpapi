@@ -13,19 +13,23 @@ return new class extends Migration
     {
         Schema::create('_personal', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
             $table->string('nombre');
-            $table->integer('telefono');
+            $table->string('apellido');
+            $table->string('email')->unique();
+            $table->integer('nro_telefono');
             $table->string('cargo');
             $table->string('estado');
             $table->date('fecha_contrato');
             $table->date('finalizacion_contrato');
+            $table->date('fecha_nacimiento');
             $table->char('genero', 1);
-    
+            $table->string('nro_casa');
+            $table->string('calle');
+            $table->string('ciudad');
+            $table->string('distrito');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 

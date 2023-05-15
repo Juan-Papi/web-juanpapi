@@ -10,7 +10,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Models\Cliente;
+use App\Models\Personal;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -61,4 +62,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //relacion de uno a uno 
+    public function personal()
+    {
+        return $this->hasOne(Personal::class);
+    }
+    //relacion uno a uno
+    public function cliente()
+    {
+        return $this->hasOne(Cliente::class);   
+    }
+    // relacion de uno a muchos
+    public function rols()
+    {
+        return $this->hasMany(rol::class);
+    }
 }
