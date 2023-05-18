@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\principalController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\PersonalController;
 //use App\Http\Controllers\loginController;
 
 /*
@@ -69,3 +70,5 @@ Route::get('/logout', function(){
 Route::get('/billing', function () {
     return view('pages.billing');
 })->name('billing');
+
+Route::resource('/personal', PersonalController::class);
